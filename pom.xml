@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.jbtech</groupId>
 	<artifactId>piline</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>v1.0.0</version>
 	<name>piline</name>
 	<description>Setup Jenkins pipeline</description>
 	<url/>

@@ -28,7 +28,9 @@ To set up Jenkins, follow these steps:
       ```sh
       java -jar jenkins.war --httpPort=8080
       ```
-
+4. ****
+   - To start Jenkins, run the following command:
+   
 ### Project Setup
 
 ```sh
