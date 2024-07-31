@@ -28,8 +28,61 @@ To set up Jenkins, follow these steps:
       ```sh
       java -jar jenkins.war --httpPort=8080
       ```
-4. ****
-   - To start Jenkins, run the following command:
+4. **Setup Pipeline Steps:**
+   - Select "New Item" (Pipeline)
+   - Select "GitHub project" (Provide GitHub URL)
+   - Define "Pipeline Script"
+
+#### Important Note: 
+1. Use `bat` for Windows commands and `sh` for Linux commands in your Jenkins pipeline script.
+2. `withCredentials` is used to securely handle passwords by storing them in a variable. 
+
+### Here is the script I used: 
+``` 
+   pipeline {
+       agent any
+       tools{
+           maven 'maven_3_9_8'
+       }
+       stages {
+           stage('Git Checkout') {
+               steps {
+                   checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jonayed-xlab/Piline']])
+                
+               }
+           }
+           stage('Install Dependencies') {
+               steps {
+                   bat 'mvn clean install' 
+               }
+           }
+           stage('Application Build') {
+               steps {
+                   bat 'mvn package'
+               }
+           }
+           stage('Build Docker Image') {
+               steps {
+                   script {
+                       bat 'docker build -t jonayed23/piline-server .'
+                   }
+               }
+           }
+           stage('Upload Image to Docker Hub') {
+               steps {
+                   script {
+                       withCredentials([string(credentialsId: 'Password', variable: 'PASSWORD')]) {
+                           bat 'docker login -u jonayed23 -p %PASSWORD%'
+                       }
+                    
+                       bat 'docker push jonayed23/piline-server'
+
+                   }
+               }
+           }
+       }
+   }
+   ```
    
 ### Project Setup
 
