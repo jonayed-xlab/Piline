@@ -21,7 +21,7 @@ public class Server {
 
     @GetMapping("/hello/{name}")
     public String getName(@PathVariable("name") String name) {
-        return "Hello " + name + " !!";
+        return "Hello " + name + " !!!";
     }
 
 }
