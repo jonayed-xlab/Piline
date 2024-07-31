@@ -100,3 +100,6 @@ cd Piline
 ./mvnw spring-boot:run
 ```
 
+### Pull Docker Image Command
+`docker pull jonayed23/piline-server:latest`
+
