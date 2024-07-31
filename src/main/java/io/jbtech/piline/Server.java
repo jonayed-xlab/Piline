@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/server/v1")
 public class Server {
 
+    @GetMapping
+    public String status() {
+        return "Status: UP";
+    }
+
     @GetMapping("/hello")
     public String hello() {
         return "Hello World!";
@@ -16,6 +21,7 @@ public class Server {
 
     @GetMapping("/hello/{name}")
     public String getName(@PathVariable("name") String name) {
-        return "Hello ${name}";
+        return "Hello" + name;
     }
+
 }
