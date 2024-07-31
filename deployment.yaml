@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: piline-server
-          image: jonayed23/piline-server
+          image: jonayed23/piline-server:latest
           ports:
             - containerPort: 8181
