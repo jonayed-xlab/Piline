@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piline-server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: piline-server
+  template:
+    metadata:
+      labels:
+        app: piline-server
+    spec:
+      containers:
+        - name: piline-server
+          image: jonayed23/piline-server
+          ports:
+            - containerPort: 8686
