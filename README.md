@@ -6,6 +6,14 @@ The primary goal of this project is to explore and practice DevOps tools and pra
 
 ## Installation
 
+
+### Docker
+
+To set up Docker , follow these steps:
+
+1. **Download and Install Docker:**
+   - Visit the [Docker Download Page](https://docs.docker.com/desktop/install/windows-install/)
+
 ### Jenkins
 
 To set up Jenkins, follow these steps:
@@ -83,8 +91,20 @@ To set up Jenkins, follow these steps:
        }
    }
    ```
-   
-### Project Setup
+
+### Minikube
+
+To set up Minikube, follow these steps:
+
+1. **Download Kubectl:**
+   - Visit the [Kubectl Download Page](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/) and download the Windows executable.
+2. **Download Minikube:**
+   - Visit the [Minikube Download Page](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download) and download the Windows executable.
+   - Set `PATH` Variable for `Minikube.exe` folder
+3. **Run Minikube:**
+   - ``minikube start --driver=docker``
+
+## Project Setup
 
 ```sh
 # Clone the Repository:
@@ -100,6 +120,6 @@ cd Piline
 ./mvnw spring-boot:run
 ```
 
-### Pull Docker Image Command
+## Pull Docker Image
 `docker pull jonayed23/piline-server:latest`
 
