@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/server/v1")
 public class Server {
 
-    @GetMapping
+    @GetMapping("/")
     public String status() {
         return "Status: UP";
     }
@@ -21,7 +21,7 @@ public class Server {
 
     @GetMapping("/hello/{name}")
     public String getName(@PathVariable("name") String name) {
-        return "Hello" + name;
+        return "Hello " + name + " !!";
     }
 
 }
